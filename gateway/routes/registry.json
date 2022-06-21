@@ -1,0 +1,11 @@
+{
+    "services": {
+        "user": {
+            "apiName": "user",
+            "host": "localhost",
+            "port": "4000",
+            "protocol": "http",
+            "url": "http://localhost:4000/auth"
+        }
+    }
+}
