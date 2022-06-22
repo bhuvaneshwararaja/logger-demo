@@ -1,0 +1,20 @@
+{
+  "name": "logger-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "all": "concurrently \"cd authService && npm start\" \"cd gateway && npm start\" \"cd LoggerService && npm start\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhuvaneshwararaja/logger-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhuvaneshwararaja/logger-demo/issues"
+  },
+  "homepage": "https://github.com/bhuvaneshwararaja/logger-demo#readme"
+}
