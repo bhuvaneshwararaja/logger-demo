@@ -20,7 +20,8 @@ router.all('/:apiName/:path',(req,res)=>{
             method:req.method,
             url:registry['services'][req.params.apiName].url+"/"+req.params.path+`?logId=${id}`,
             body:req.body
-        }).then((res)=>{     
+        })
+        .then((res)=>{     
 
             // axios.post('http://localhost:3001/log/updateresponse',response.data).then((res)=>{
             //     console.log(res.data)
