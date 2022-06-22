@@ -16,6 +16,7 @@ router.post('/addrequestid',(req,res)=>{
 
 
 router.post('/updateresponse',(req,res)=>{
+    console.log(req.body + "from logger update")
     const {reqID,...responsedata}=req.body;
     const sqlquery='select * from logtabel where reqID=?';
     connection.query(sqlquery,[reqID],(err,result)=>{
@@ -25,8 +26,11 @@ router.post('/updateresponse',(req,res)=>{
                 console.log(responsedata)
                 const updatequery='update logtabel set response=? where reqID=?';
                 connection.query(updatequery,[JSON.stringify(responsedata),reqID],(err,result)=>{
-                    console.log(result)
-                    if(!err) console.log("Updated successfully"+reqID);
+                    if(!err){ res.send({
+                        reqID:reqID,
+                        message:"updated respose to specific reqID"
+                    })
+                }
                 })
             }
         }

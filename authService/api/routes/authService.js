@@ -19,14 +19,17 @@ router.post("/login",(req,res) => {
         if(!err) {
             if(result.length === 0){
                 loggerFunc(loginDetails)
-                res.status(401).send({
+                console.log(loginDetails)
+                res.send({
                     reqID:loginDetails.logId,
                     Message:"unAutherized"
                 })
             }
             else{
                 loggerFunc(loginDetails)
-                res.status(200).send({
+                console.log(loginDetails)
+
+                res.send({
                     reqID:loginDetails.logId,
                     Message:"username and password are correct",
                     user:result[0].username

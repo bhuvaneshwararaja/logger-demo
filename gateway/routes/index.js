@@ -19,16 +19,19 @@ router.all('/:apiName/:path',(req,res)=>{
         axios({
             method:req.method,
             url:registry['services'][req.params.apiName].url+"/"+req.params.path+`?logId=${id}`,
-            body:req.body
+            data:req.body
         })
         .then((res)=>{     
+            console.log(res.data);
 
-            // axios.post('http://localhost:3001/log/updateresponse',response.data).then((res)=>{
-            //     console.log(res.data)
-            // })
+            if(res){
+                axios.post('http://localhost:3001/log/updateresponse',res.data).then((res)=>{
+                    console.log(res.data)
+                })
+            }
+           
             
-            console.log(res);
-            // res.send(response.data); // data contains what the fakeapi sends
+            
         }).catch(()=>{res.send("No response")});
     }
     else{
